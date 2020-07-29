@@ -1,0 +1,25 @@
+{
+	"name": "select-tool-everywhere",
+	"title": "Select tool everywhere",
+	"description": "Adds the select tool to  all controls(measure templates, lighting and sound) and a patch for journal notes so the select tool works there too. This is a quick and dirty module, the selection doesn't show correctly but you can move multiple light/sounds/templates/journals with this. This will probably be obsolete in the future.",
+	"version": "1.0.0",
+	"minimumCoreVersion": "0.6.0",
+	"compatibleCoreVersion": "0.6.5",
+	"author": "KayelGee - KayelGee#5241",
+	"scripts": [
+		"select-tool-everywhere.js"
+	],
+	"styles": [],
+	"packs": [],
+	"languages": [
+		{
+			"lang": "en",
+			"path": "languages/en.json"
+		}
+	],
+	"socket": false,
+	"url": "https://github.com/KayelGee/select-tool-everywhere",
+  "manifest": "https://raw.githubusercontent.com/KayelGee/select-tool-everywhere/master/module.json",
+  "download": "https://github.com/KayelGee/select-tool-everywhere/releases/download/v1.0.0/v1.0.0.zip",
+  "readme": "https://github.com/KayelGee/select-tool-everywhere/blob/v1.0.0/README.md"
+}
