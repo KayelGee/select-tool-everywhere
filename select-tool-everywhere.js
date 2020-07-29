@@ -30,7 +30,7 @@
 				else if(controls[i].name === "measure"){
 					controls[i].tools.push({
 						name: "select",
-						title: "CONTROLS.SoundSelect",
+						title: "CONTROLS.TemplateSelect",
 						icon: "fas fa-expand"
 					});
 				}

@@ -1,4 +1,5 @@
 {
 	"CONTROLS.LightSelect": "Select Lights",
-	"CONTROLS.SoundSelect": "Select Sounds"
+	"CONTROLS.SoundSelect": "Select Sounds",
+	"CONTROLS.TemplateSelect": "Select Templates"
 }
