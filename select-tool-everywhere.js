@@ -1,5 +1,4 @@
 (async () => {
-	CONFIG.debug.hooks = true;
 	class SelectToolEverywhere {
 		static initialize(){
 			//Patch so select tool works for Light and Sound
