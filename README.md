@@ -6,9 +6,12 @@
 **[Compatibility]**: *FoundryVTT* 0.6.0+  
 **[Systems]**: *any*  
 **[Languages]**: *English*  
+Adds the select tool to all controls(measure templates, lighting and sound) and a patch for journal notes so the select tool works there too. 
+You can move multiple light/sounds/templates/journals with this. 
 
-Adds the select tool to  all controls(measure templates, lighting and sound) and a patch for journal notes so the select tool works there too.
-This is a quick and dirty module, the selection doesn't show correctly but you can move multiple light/sounds/templates/journals with this.
+Thanks to Blitz#6797 the selection does show correctly.  
+
+This module checks if a select tool is there before adding it(also thanks to Blitz) and makes sure to only do anything if this module added the select tool, so it should be safe to use with other modules that add a select tool. 
 
 This will probably be obsolete in the future.
 
