@@ -2,11 +2,11 @@
 	class SelectToolEverywhere {
 		static initialize(){
 			//Patch so select tool works for Light and Sound
-			AmbientLight.layer.options.controllableObjects = true;
-			AmbientSound.layer.options.controllableObjects = true;
-			MeasuredTemplate.layer.options.controllableObjects = true;
-			if(Note.layer.options.controllableObjects === false) window['select-tool-everywhere'].push("Note");
-			Note.layer.options.controllableObjects = true;
+			canvas.getLayerByEmbeddedName("AmbientLight").options.controllableObjects = true;
+			canvas.getLayerByEmbeddedName("AmbientSound").options.controllableObjects = true;
+			canvas.getLayerByEmbeddedName("MeasuredTemplate").options.controllableObjects = true;
+			if(canvas.getLayerByEmbeddedName("Note").options.controllableObjects === false) window['select-tool-everywhere'].push("Note");
+			canvas.getLayerByEmbeddedName("Note").options.controllableObjects = true;
 		}
 
 		/**
