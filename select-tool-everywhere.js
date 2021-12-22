@@ -51,13 +51,13 @@
 		}
 
 		static placeableSelected(placeable, selected){
-			if(!window['select-tool-everywhere'].find(type => type === placeable.constructor.name)) return;
-            placeable.controlIcon.border.visible = selected
+			if(!window['select-tool-everywhere'].find(type => type === placeable.layer.constructor.documentName)) return;
+            placeable.controlIcon.border.visible = selected;
 		}
 		static placeableHovered(placeable, hovered){
-			if(!window['select-tool-everywhere'].find(type => type === placeable.constructor.name)) return;
+			if(!window['select-tool-everywhere'].find(type => type === placeable.layer.constructor.documentName)) return;
 			if(placeable._controlled){
-				placeable.controlIcon.border.visible = true
+				placeable.controlIcon.border.visible = true;
 			}
 		}
 
