@@ -5,8 +5,6 @@
 			canvas.getLayerByEmbeddedName("AmbientLight").options.controllableObjects = true;
 			canvas.getLayerByEmbeddedName("AmbientSound").options.controllableObjects = true;
 			canvas.getLayerByEmbeddedName("MeasuredTemplate").options.controllableObjects = true;
-			if(canvas.getLayerByEmbeddedName("Note").options.controllableObjects === false) window['select-tool-everywhere'].push("Note");
-			canvas.getLayerByEmbeddedName("Note").options.controllableObjects = true;
 		}
 
 		/**
@@ -65,7 +63,7 @@
 	window['select-tool-everywhere']=[];
 	Hooks.on('getSceneControlButtons', (controls) => SelectToolEverywhere._getControlButtons(controls));
 	Hooks.on('canvasReady', () => SelectToolEverywhere.initialize());
-	for (const type of ["AmbientLight", "AmbientSound", "MeasuredTemplate", "Note"]) {
+	for (const type of ["AmbientLight", "AmbientSound", "MeasuredTemplate"]) {
 		Hooks.on(`control${type}`, SelectToolEverywhere.placeableSelected);
 		Hooks.on(`hover${type}`, SelectToolEverywhere.placeableHovered);
 	}
