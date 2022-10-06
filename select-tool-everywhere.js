@@ -2,7 +2,7 @@
 	class SelectToolEverywhere {
 		static initialize(){
 			//Patch so select tool works for Light and Sound
-			canvas.getLayerByEmbeddedName("AmbientLight").options.controllableObjects = true;
+			//canvas.getLayerByEmbeddedName("AmbientLight").options.controllableObjects = true;
 			canvas.getLayerByEmbeddedName("AmbientSound").options.controllableObjects = true;
 			canvas.getLayerByEmbeddedName("MeasuredTemplate").options.controllableObjects = true;
 		}
@@ -13,17 +13,17 @@
 		static _getControlButtons(controls){
 			let added_tools=[];
 			for (let i = 0; i < controls.length; i++) {
-				if(controls[i].name === "lighting"){
-					if (!controls[i].tools.find(tool => tool.name === "select")) {
-						controls[i].tools.unshift({
-							name: "select",
-							title: "CONTROLS.LightSelect",
-							icon: "fas fa-expand"
-						});
-						added_tools.push("AmbientLight");
-					}
-				}
-				else if(controls[i].name === "sounds"){
+				// if(controls[i].name === "lighting"){
+				// 	if (!controls[i].tools.find(tool => tool.name === "select")) {
+				// 		controls[i].tools.unshift({
+				// 			name: "select",
+				// 			title: "CONTROLS.LightSelect",
+				// 			icon: "fas fa-expand"
+				// 		});
+				// 		added_tools.push("AmbientLight");
+				// 	}
+				// }
+				if(controls[i].name === "sounds"){
 					if (!controls[i].tools.find(tool => tool.name === "select")) {
 						controls[i].tools.unshift({
 							name: "select",
@@ -63,7 +63,7 @@
 	window['select-tool-everywhere']=[];
 	Hooks.on('getSceneControlButtons', (controls) => SelectToolEverywhere._getControlButtons(controls));
 	Hooks.on('canvasReady', () => SelectToolEverywhere.initialize());
-	for (const type of ["AmbientLight", "AmbientSound", "MeasuredTemplate"]) {
+	for (const type of ["AmbientSound", "MeasuredTemplate"]) {
 		Hooks.on(`control${type}`, SelectToolEverywhere.placeableSelected);
 		Hooks.on(`hover${type}`, SelectToolEverywhere.placeableHovered);
 	}
