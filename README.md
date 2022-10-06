@@ -3,11 +3,13 @@
 ![GitHub Releases](https://img.shields.io/github/downloads/KayelGee/select-tool-everywhere/latest/total?style=for-the-badge) 
 ![GitHub All Releases](https://img.shields.io/github/downloads/KayelGee/select-tool-everywhere/total?style=for-the-badge&label=Downloads+total)  
 
-**[Compatibility]**: *FoundryVTT* 0.6.0+  
+**[Compatibility]**: *FoundryVTT* v10+  
 **[Systems]**: *any*  
 **[Languages]**: *English*  
-Adds the select tool to all controls(measure templates, lighting and sound) and a patch for journal notes so the select tool works there too. 
-You can move multiple light/sounds/templates/journals with this. 
+As of v10 this doesn't work for lights(it randomly crashes the canvas when moving multiple lights) 
+and I don't know how to fix that so this doesn't enable the select tool for lights anymore.
+Adds the select tool to most controls(measure templates and sound). 
+You can move multiple sounds/templates with this. 
 
 Thanks to Blitz#6797 the selection does show correctly.  
 
@@ -22,7 +24,7 @@ This will probably be obsolete in the future.
 
 ## Usage
 
-Select the select tool. Select your lights/sounds you wish to move all at once. Drag one light/sound to move them all.
+Select the select tool. Select your sounds/templates you wish to move all at once. Drag one sound/template to move them all.
 
 ![](select-tool-everywhere.gif)
 
