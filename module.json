@@ -1,35 +1,39 @@
 {
-	"id": "select-tool-everywhere",
-	"title": "Select tool everywhere",
-	"description": "Adds the select tool to all controls(measure templates, lighting and sound) and a patch for journal notes so the select tool works there too. This is a quick and dirty module. You can move multiple light/sounds/templates/journals with this. Thanks to Blitz#6797 the selection does show correctly.  This module checks if a select tool is there before adding it(also thanks to Blitz) and makes sure to only do anything if this module added the select tool, so it should be safe to use with other modules that add a select tool. This will probably be obsolete in the future.",
-	"version": "1.4.0",
-	"compatibility" :{
-		"minimum": 10,	
-		"verified": "10.286",
-		"maximum": 10	
-	},
-	"authors": [
-		{
-			"name": "KayelGee",
-			"url": "https://github.com/KayelGee",
-			"discord": "KayelGee#5241"
-		}
-	],
-	"scripts": [
-		"select-tool-everywhere.js"
-	],
-	"styles": [],
-	"packs": [],
-	"languages": [
-		{
-			"lang": "en",
-			"name": "English",
-			"path": "languages/en.json"
-		}
-	],
-	"socket": false,
-	"url": "https://github.com/KayelGee/select-tool-everywhere",
-  "manifest": "https://raw.githubusercontent.com/KayelGee/select-tool-everywhere/master/module.json",
-  "download": "https://github.com/KayelGee/select-tool-everywhere/releases/download/v1.4.0/v1.4.0.zip",
-  "readme": "https://github.com/KayelGee/select-tool-everywhere/blob/v1.4.0/README.md"
+    "id": "select-tool-everywhere",
+    "title": "Select tool everywhere",
+    "description": "Adds the select tool to all controls(measure templates, lighting and sound) and a patch for journal notes so the select tool works there too. This is a quick and dirty module. You can move multiple light/sounds/templates/journals with this. Thanks to Blitz#6797 the selection does show correctly.  This module checks if a select tool is there before adding it(also thanks to Blitz) and makes sure to only do anything if this module added the select tool, so it should be safe to use with other modules that add a select tool. This will probably be obsolete in the future.",
+    "version": "1.4.0",
+    "compatibility": {
+        "minimum": 10,
+        "verified": "10.286",
+        "maximum": 10
+    },
+    "authors": [
+        {
+            "name": "KayelGee",
+            "url": "https://github.com/KayelGee",
+            "discord": "KayelGee#5241"
+        }
+    ],
+    "scripts": ["select-tool-everywhere.js"],
+    "styles": [],
+    "dependencies": [
+        {
+            "name": "lib-wrapper",
+            "type": "module"
+        }
+    ],
+    "packs": [],
+    "languages": [
+        {
+            "lang": "en",
+            "name": "English",
+            "path": "languages/en.json"
+        }
+    ],
+    "socket": false,
+    "url": "https://github.com/KayelGee/select-tool-everywhere",
+    "manifest": "https://raw.githubusercontent.com/KayelGee/select-tool-everywhere/master/module.json",
+    "download": "https://github.com/KayelGee/select-tool-everywhere/releases/download/v1.4.0/v1.4.0.zip",
+    "readme": "https://github.com/KayelGee/select-tool-everywhere/blob/v1.4.0/README.md"
 }
