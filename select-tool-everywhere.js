@@ -2,7 +2,9 @@
 	class SelectToolEverywhere {
 		static initialize(){
 			//Patch so select tool works for Light and Sound
-			//canvas.getLayerByEmbeddedName("AmbientLight").options.controllableObjects = true;
+            if (typeof libWrapper === "function") {
+                canvas.getLayerByEmbeddedName("AmbientLight").options.controllableObjects = true;
+            }
 			canvas.getLayerByEmbeddedName("AmbientSound").options.controllableObjects = true;
 			canvas.getLayerByEmbeddedName("MeasuredTemplate").options.controllableObjects = true;
 		}
@@ -13,16 +15,18 @@
 		static _getControlButtons(controls){
 			let added_tools=[];
 			for (let i = 0; i < controls.length; i++) {
-				// if(controls[i].name === "lighting"){
-				// 	if (!controls[i].tools.find(tool => tool.name === "select")) {
-				// 		controls[i].tools.unshift({
-				// 			name: "select",
-				// 			title: "CONTROLS.LightSelect",
-				// 			icon: "fas fa-expand"
-				// 		});
-				// 		added_tools.push("AmbientLight");
-				// 	}
-				// }
+                if (typeof libWrapper === "function") {
+                    if(controls[i].name === "lighting"){
+                        if (!controls[i].tools.find(tool => tool.name === "select")) {
+                            controls[i].tools.unshift({
+                                name: "select",
+                                title: "CONTROLS.LightSelect",
+                                icon: "fas fa-expand"
+                            });
+                            added_tools.push("AmbientLight");
+                        }
+                    }
+                }
 				if(controls[i].name === "sounds"){
 					if (!controls[i].tools.find(tool => tool.name === "select")) {
 						controls[i].tools.unshift({
@@ -67,4 +71,14 @@
 		Hooks.on(`control${type}`, SelectToolEverywhere.placeableSelected);
 		Hooks.on(`hover${type}`, SelectToolEverywhere.placeableHovered);
 	}
+    Hooks.once("init", () => {
+        if (typeof libWrapper === "function") {
+            libWrapper.register("select-tool-everywhere", "AmbientLight.prototype._onDragLeftCancel",
+                function (...args) {
+                    Object.getPrototypeOf(AmbientLight).prototype._onDragLeftCancel.apply(this, ...args);
+                    this.updateSource({ defer: true });
+                }, "OVERRIDE"
+            );
+        }
+    });
 })();
