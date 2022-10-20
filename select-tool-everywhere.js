@@ -60,22 +60,24 @@
 
   // For notes the refresh hook is called while ControlIcon is still loading its texture (see ControlIcon.draw())
   // Once the texture is loaded border visibility will be reset to false undoing our change in SelectToolEverywhere.placeableRefresh
-  // Instead delay here to account for this
+  // Instead delay and set visibility after draw to account for this
   Hooks.on("drawNote", (note) => {
     setTimeout(() => {
       SelectToolEverywhere.placeableRefresh(note);
     }, 10);
   });
 
-  Hooks.once("init", () => {
-    libWrapper.register(
-      "select-tool-everywhere",
-      "AmbientLight.prototype._onDragLeftCancel",
-      function (...args) {
-        Object.getPrototypeOf(AmbientLight).prototype._onDragLeftCancel.apply(this, args);
-        this.updateSource({ defer: true });
-      },
-      "OVERRIDE"
-    );
+  // Slightly modified 'AmbientLight._onDragLeftCancel' to defer source updates instead of applying them immediately
+  function lightDragLeftCancel(event) {
+    Object.getPrototypeOf(AmbientLight).prototype._onDragLeftCancel.call(this, event);
+    this.updateSource({ defer: true });
+  }
+
+  // To avoid race conditions between multiple light _onDragLeftCancel calls we'll patch the cached function within
+  // MouseInteractionManager instance to defer source updates
+  Hooks.on("controlAmbientLight", (light) => {
+    if (light.mouseInteractionManager?.callbacks) {
+      light.mouseInteractionManager.callbacks.dragLeftCancel = lightDragLeftCancel.bind(light);
+    }
   });
 })();
