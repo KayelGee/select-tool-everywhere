@@ -47,13 +47,9 @@
       console.log("SelectToolEverywhere | Tools added.");
     }
 
-    static placeableSelected(placeable, selected) {
+    static placeableRefresh(placeable) {
       if (!window["select-tool-everywhere"].find((type) => type === placeable.layer.constructor.documentName)) return;
-      placeable.controlIcon.border.visible = selected;
-    }
-    static placeableHovered(placeable, hovered) {
-      if (!window["select-tool-everywhere"].find((type) => type === placeable.layer.constructor.documentName)) return;
-      if (placeable._controlled) {
+      if (placeable.controlled) {
         placeable.controlIcon.border.visible = true;
       }
     }
@@ -61,9 +57,8 @@
   window["select-tool-everywhere"] = [];
   Hooks.on("getSceneControlButtons", (controls) => SelectToolEverywhere._getControlButtons(controls));
   Hooks.on("canvasReady", () => SelectToolEverywhere.initialize());
-  for (const type of ["AmbientSound", "MeasuredTemplate"]) {
-    Hooks.on(`control${type}`, SelectToolEverywhere.placeableSelected);
-    Hooks.on(`hover${type}`, SelectToolEverywhere.placeableHovered);
+  for (const type of ["AmbientSound", "MeasuredTemplate", "AmbientLight"]) {
+    Hooks.on(`refresh${type}`, SelectToolEverywhere.placeableRefresh);
   }
   Hooks.once("init", () => {
     libWrapper.register(
