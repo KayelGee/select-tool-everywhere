@@ -17,6 +17,12 @@
   ],
   "scripts": ["select-tool-everywhere.js"],
   "styles": [],
+  "dependencies": [
+    {
+      "name": "lib-wrapper",
+      "type": "module"
+    }
+  ],
   "packs": [],
   "languages": [
     {

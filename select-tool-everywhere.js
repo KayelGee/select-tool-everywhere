@@ -67,17 +67,17 @@
     }, 10);
   });
 
-  // Slightly modified 'AmbientLight._onDragLeftCancel' to defer source updates instead of applying them immediately
-  function lightDragLeftCancel(event) {
-    Object.getPrototypeOf(AmbientLight).prototype._onDragLeftCancel.call(this, event);
-    this.updateSource({ defer: true });
-  }
-
-  // To avoid race conditions between multiple light _onDragLeftCancel calls we'll patch the cached function within
-  // MouseInteractionManager instance to defer source updates
-  Hooks.on("controlAmbientLight", (light) => {
-    if (light.mouseInteractionManager?.callbacks) {
-      light.mouseInteractionManager.callbacks.dragLeftCancel = lightDragLeftCancel.bind(light);
-    }
+  Hooks.once("init", () => {
+    // To avoid race conditions between multiple AmbientLight _onDragLeftCancel calls we'll defer the
+    // canvas.perception update within 'updateSource' via a 'defer' argument
+    libWrapper.register(
+      "select-tool-everywhere",
+      "AmbientLight.prototype._onDragLeftCancel",
+      function (...args) {
+        Object.getPrototypeOf(AmbientLight).prototype._onDragLeftCancel.apply(this, args);
+        this.updateSource({ defer: true });
+      },
+      "OVERRIDE"
+    );
   });
 })();
