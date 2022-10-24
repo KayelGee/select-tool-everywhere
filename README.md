@@ -31,3 +31,7 @@ Select the select tool. Select your sounds/templates you wish to move all at onc
 ## Contact
 
 If you wish to contact me for any reason, reach me out on Discord using my tag: `KayelGee#5241`
+
+## Credits
+
+Workaround for Lights and Notes provided by Aedif
