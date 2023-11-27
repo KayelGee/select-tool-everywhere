@@ -12,8 +12,6 @@ Adds the select tool to controls of AmbientLights, AmbientSounds, Notes, and Mea
 
 This enables selection, deletion, and movement of multiple lights, sounds, notes and templates.
 
-Thanks to Blitz#6797 the selection does show correctly.
-
 This module checks if a select tool is there before adding it(also thanks to Blitz) and makes sure to only do anything if this module added the select tool, so it should be safe to use with other modules that add a select tool.
 
 This will probably be obsolete in the future.
