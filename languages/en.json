@@ -1,5 +1,7 @@
 {
-	"CONTROLS.LightSelect": "Select Lights",
-	"CONTROLS.SoundSelect": "Select Sounds",
-	"CONTROLS.TemplateSelect": "Select Templates"
+  "CONTROLS.LightSelect": "Select Lights",
+  "CONTROLS.SoundSelect": "Select Sounds",
+  "CONTROLS.TemplateSelect": "Select Templates",
+  "select-tool-everywhere.settings.select-default.name": "Set Select Tool as Default",
+  "select-tool-everywhere.settings.select-default.hint": "Set Select Tool as the default active tool for AmbientLights, AmbientSounds, and MeasuredTemplates."
 }
